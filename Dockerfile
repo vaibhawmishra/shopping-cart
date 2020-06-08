@@ -6,7 +6,7 @@ RUN mvn -f /home/app/pom.xml clean package
 
 # Run jar
 FROM openjdk:8-jdk-alpine
-ARG JAR_FILE=target/shopping-cart-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=/target/shopping-cart-0.0.1-SNAPSHOT.jar
 WORKDIR /opt/myshoppingapp
 COPY ${JAR_FILE} app.jar
 
