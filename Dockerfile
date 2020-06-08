@@ -4,7 +4,7 @@ RUN git clone https://github.com/vaibhawmishra/shopping-cart.git
 
 FROM maven:3.5-jdk-8-alpine as build
 WORKDIR /app
-COPY --from=clone /app/shopping-cart /app (3)
+COPY --from=clone /app/shopping-cart /app
 RUN mvn install
 
 FROM openjdk:8-jre-alpine
