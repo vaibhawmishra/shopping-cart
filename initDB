@@ -1,0 +1,52 @@
+CREATE TABLE `products` (
+  `product_id` int NOT NULL AUTO_INCREMENT,
+  `product_name` varchar(50) NOT NULL,
+  `price` float NOT NULL,
+  `product_type` char(1) NOT NULL,
+  PRIMARY KEY (`product_id`)
+);
+
+CREATE TABLE `users` (
+  `user_id` int NOT NULL,
+  `user_name` varchar(50) NOT NULL,
+  PRIMARY KEY (`user_id`)
+);
+
+
+CREATE TABLE `carts` (
+  `cart_id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`cart_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `carts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
+);
+
+CREATE TABLE `apparals` (
+  `product_id` int NOT NULL,
+  `apparal_type` varchar(50) NOT NULL,
+  `apparal_brand` varchar(50) DEFAULT NULL,
+  `apparal_design` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`product_id`),
+  CONSTRAINT `apparals_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE
+);
+
+CREATE TABLE `books` (
+  `product_id` int NOT NULL,
+  `genre` varchar(50) DEFAULT NULL,
+  `author` varchar(50) NOT NULL,
+  `publication` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`product_id`),
+  CONSTRAINT `books_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE
+);
+
+CREATE TABLE `cart_product_mapping` (
+  `cart_product_id` int NOT NULL AUTO_INCREMENT,
+  `cart_id` int NOT NULL,
+  `product_id` int NOT NULL,
+  `quantity` int NOT NULL,
+  PRIMARY KEY (`cart_product_id`),
+  KEY `cart_id` (`cart_id`),
+  KEY `product_id` (`product_id`),
+  CONSTRAINT `cart_product_mapping_ibfk_1` FOREIGN KEY (`cart_id`) REFERENCES `carts` (`cart_id`),
+  CONSTRAINT `cart_product_mapping_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`)
+);

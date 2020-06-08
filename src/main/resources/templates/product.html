@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Docker 201</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Add Product Form</h1>
+    <form action="#" th:action="@{/product}" th:object="${product}" method="post">
+    	<p>Product Type: <input type="text" th:field="*{productType}" /></p>
+    	<p>Product Price: <input type="text" th:field="*{price}" /></p>
+        <p>Product Name: <input type="text" th:field="*{productName}" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>
