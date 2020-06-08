@@ -9,7 +9,6 @@ services:
       - MYSQL_PASSWORD=password
     ports:
       - 3306:3306
-
   shoppingcart-app:
     image: vaibhawmishra/shopping-cart-docker
     restart: on-failure
