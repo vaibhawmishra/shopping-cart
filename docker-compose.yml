@@ -1,20 +1,20 @@
 version: '3'
 services:
   shoppingcart-mysql:
-    image: mysql:latest
+    image: 'mysql:latest'
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=shoppingcartdb
       - MYSQL_USER=root
       - MYSQL_PASSWORD=password
     ports:
-      - 3306:3306
+      - '3306:3306'
   shoppingcart-app:
     image: vaibhawmishra/shopping-cart-docker
     restart: on-failure
     depends_on:
       - shoppingcart-mysql
     ports:
-      - 8080:8080
-	links:
+      - '8080:8080'
+    links:
       - shoppingcart-mysql
