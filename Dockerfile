@@ -1,8 +1,8 @@
-FROM alpine/git as clone (1)
+FROM alpine/git as clone
 WORKDIR /app
 RUN git clone https://github.com/vaibhawmishra/shopping-cart.git
 
-FROM maven:3.5-jdk-8-alpine as build (2)
+FROM maven:3.5-jdk-8-alpine as build
 WORKDIR /app
 COPY --from=clone /app/shopping-cart /app (3)
 RUN mvn install
