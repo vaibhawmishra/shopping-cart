@@ -1,7 +1,5 @@
 version: '3'
-
 services:
-
   shoppingcart-mysql:
     image: mysql:latest
     environment:
@@ -20,4 +18,4 @@ services:
     ports:
       - 8080:8080
 	links:
-      - shoppingcart-mysql	
+      - shoppingcart-mysql
