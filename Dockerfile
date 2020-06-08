@@ -5,11 +5,7 @@ RUN git clone https://github.com/vaibhawmishra/shopping-cart.git
 FROM maven:3.5-jdk-8-alpine as build
 WORKDIR /app
 COPY --from=clone /app/shopping-cart /app
-RUN mvn install
-
-FROM mysql:5.6 as mysql
-WORKDIR /app
-ADD initDB.sql /docker-entrypoint-initdb.d
+RUN mvn clean package
 
 FROM openjdk:8-jre-alpine
 WORKDIR /app
