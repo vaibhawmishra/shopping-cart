@@ -9,6 +9,6 @@ RUN mvn clean package
 
 FROM openjdk:8-jre-alpine
 WORKDIR /app
-COPY --from=build /app/target/shopping-cart-0.0.1-SNAPSHOT.jar /app
+COPY --from=build /app/target/shopping-cart-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
-CMD ["java -jar shopping-cart-0.0.1-SNAPSHOT.jar"]
+CMD ["java -jar app.jar"]
