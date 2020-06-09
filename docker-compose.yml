@@ -9,8 +9,6 @@ services:
       - MYSQL_PASSWORD=password
     ports:
       - '3306:3306'
-    volumes:
-      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
   shoppingcart-app:
     image: vaibhawmishra/shopping-cart-docker
     restart: on-failure
