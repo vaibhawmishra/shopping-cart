@@ -8,7 +8,7 @@ COPY --from=clone /app/shopping-cart /app
 RUN mvn clean package
 
 FROM mysql:5.7
-ADD initDB.sql /docker-entrypoint-initdb.d
+COPY --from=build /app/initDB.sql /docker-entrypoint-initdb.d
 
 FROM openjdk:8-jre-alpine
 WORKDIR /app
