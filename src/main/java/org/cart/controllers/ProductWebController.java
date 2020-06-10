@@ -27,7 +27,7 @@ public class ProductWebController {
 	
 	  @PostMapping("/product")
 	  public String productSubmit(@ModelAttribute ProductVO productVO) throws ShoppingCartException {
-		  productService.addProduct(productVO);
+		  //productService.addProduct(productVO);
 	    return "result";
 	  }
 }
