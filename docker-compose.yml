@@ -5,7 +5,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=shoppingcartdb
-      - MYSQL_USER=root
+      - MYSQL_USER=anotherroot
       - MYSQL_PASSWORD=password
     ports:
       - '3306:3306'
