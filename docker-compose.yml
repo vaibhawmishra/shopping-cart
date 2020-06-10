@@ -1,7 +1,7 @@
 version: '2'
 services:
   shoppingcart-mysql:
-    image: mysql:latest
+    image: mysql:8.0.20
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=shoppingcartdb
